@@ -1,0 +1,89 @@
+﻿git commands
+	eclipse plugin url
+		http://www.jgit.org/updates
+		(Help -> Install new Software)
+		install the "Eclipse EGit" plugin
+	link git tutorial
+		http://book.git-scm.com/
+		http://wiki.eclipse.org/EGit/User_Guide/Remote#Push_Upstream
+		http://www.vogella.de/articles/Git/article.html
+	add file
+		git add README
+		git commit -m 'first commit'
+		(this is only local yet)
+		git remote add origin git@github.com:ipaparazzi/Hello-World.git
+		git push origin master
+	get the latest from git
+		git checkout -f master
+
+	ssh-keygen -t rsa -C "amir.haroush@gmail.com" (generating ssh key-pair)
+	ssh -T git@github.com (checking the ssh key)
+	git init (create new repository)
+	git config --global user.name "Firstname Lastname"
+	git config --global user.email "your_email@youremail.com"
+	git config --global github.user username (to set username)
+	git config --global github.token 0123456789yourf0123456789token (to set token)
+	git clone git://github.com/ipaparazzi/Hello-World.git (getting a new copy of a project)
+	git status (see the current status)
+	git diff --cached (what is about to be committed using)
+	git diff (any changes that you've made but not yet added to the index)
+
+	git commit -a (automatically notice any modified (but not new) files, add them to the index, and commit, all in one step)
+
+	git branch (get a list of all existing branches - asterisk (*) marks the branch you are currently on)
+	git branch experimental (create a new branch named "experimental")
+	git checkout experimental (switch to the experimental branch)
+	git merge experimental (if you on branch master, this will merge experimental branch into master branch)
+	gitk (show a nice graphical representation of the resulting history)
+	git branch -d experimental (deletes the experimental branch, ensures that the changes in the experimental branch are already in the current branch)
+	git branch -D experimental (deletes the experimental branch, regardless is the changes saved into the current branch)
+	git reset --hard HEAD (If you get stuck and decide to just give up and throw the whole mess away, you can always return to the pre-merge state)
+
+	git log v2.5..        # commits since (not reachable from) v2.5
+	git log test..master  # commits reachable from master but not test
+	git log master..test  # commits reachable from test but not master
+	git log master...test # commits reachable from either test or
+	                      #    master, but not both
+	git log --since="2 weeks ago" # commits from the last 2 weeks
+	git log Makefile      # commits that modify Makefile
+	git log fs/           # commits that modify any file under fs/
+	git log -S'foo()'     # commits that add or remove any file data
+	                      # matching the string 'foo()'
+	git log --no-merges   # dont show merge commits
+	git log README
+	git log -p (log with patches)
+	git log --pretty=oneline (Formatting the Log to be one line)
+	git log --pretty=short (Formatting the Log to be short)
+			medium
+			full
+			fuller
+			email
+			raw
+	git log --pretty=format:'%h was %an, %ar, message: %s' (custom format)
+	git log --pretty=format:'%h : %s' --graph (another format)
+	git log --pretty=format:'%h : %s' --topo-order --graph (Ordering the Log)
+	git log --pretty=format:'%h : %s' --date-order --graph (formatting by date)
+
+	Bob & Alice
+		Suppose that Alice has started a new, bob want to make some changes
+			git clone /home/alice/project myrepo (creates a new directory "myrepo" containing a clone of Alice's repository)
+		after Bob's commit, alice need to take the new changes
+			cd /home/alice/project
+			git pull /home/bob/myrepo master
+
+
+	git-reset --hard (to remove already-published commits)
+	git-commit --amend (to replace already-published commits)
+	git-rebase (rebase any already-published commits)
+
+	git ls-remote origin
+	git remote (show a list of existing remote)
+
+	
+Egit
+	add new repository from github
+		Import -> Git -> Project from Git
+		Enter the ssh uri and then "Clone..."
+		set Protocol to "ssh"
+		(Leave the Password empty, for free users)
+		click Next
